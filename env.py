@@ -55,8 +55,14 @@ def get_reward(current_state, next_state):
     # maximum number gets larger
     reward += (np.max(next_state) - np.max(current_state))
     # more merge
-    reward += (np.count_nonzero(next_state == 0) - np.count_nonzero(current_state == 0))
+    reward += (get_score(next_state) - get_score(current_state))
     return reward
+
+
+def get_score(state):
+    """Get score given a game state"""
+    all_power = [3**(np.log2(num/3)+1) for row in state for num in row if num > 3]
+    return np.sum(all_power)
 
 
 def try_move(current_state, action):
@@ -91,7 +97,7 @@ def try_move(current_state, action):
                 next_state[i] = new_array[::-1]
 
     elif action == 'stop':
-        return current_state, np.sum(current_state)
+        return current_state, get_score(current_state)
 
     reward = get_reward(current_state, next_state)
 
@@ -110,7 +116,7 @@ class Threes:
         self.state = np.zeros((4, 4))
         x, y = np.random.choice(4, 2)
         self.state[x, y] = np.random.choice([1, 2])
-        self.score = np.sum(self.state)
+        self.score = get_score(self.state)
         self.level = level
 
     def playable(self):
@@ -144,7 +150,7 @@ class Threes:
     def make_move(self, action):
         """Given the action, the game goes to the next state"""
         if action == 'stop':
-            self.score = np.sum(self.state)
+            self.score = get_score(self.state)
             return self.state, self.score
 
         self.state = try_move(self.state, action)[0]
@@ -156,4 +162,4 @@ class Threes:
 
         # Update the game state and scores
         self.state[x, y] = new_tile
-        self.score = np.sum(self.state)
+        self.score = get_score(self.state)

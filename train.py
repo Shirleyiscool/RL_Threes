@@ -13,6 +13,6 @@ def train_qlearning(agent, n_games=100, n_episodes=100, n_training_blocks=10, le
     """Given agent, do more training. Return (hopefully) improved agent."""
     for n_training_block in range(1, n_training_blocks + 1):
         agent.learn_game(n_episodes)
-        print(f"After {n_games * n_training_block:,} learning games:")
+        print(f"After {n_episodes * n_training_block:,} learning games:")
         print_demo_game_stats(agent, n_games=n_games, level=level, mode='q-learning')
     return agent

@@ -10,4 +10,4 @@ print('Greedy Mode:')
 print_demo_game_stats(agent, n_games=100, level='Hard', mode='max')
 
 print("\nQ-learning:")
-train_qlearning(agent, n_games=100, n_episodes=1000, n_training_blocks=10, level='Hard')
+train_qlearning(agent, n_games=100, n_episodes=1000, n_training_blocks=5, level='Hard')
