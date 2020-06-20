@@ -7,6 +7,7 @@ def print_demo_game_stats(agent, n_games=100, level='Hard', mode='random'):
     mean_score, max_score = np.mean(results), np.max(results)
     print(f"mean score: {mean_score}")
     print(f"max score: {max_score}")
+    return mean_score, max_score
 
 
 def train_qlearning(agent, n_games=100, n_episodes=100, n_training_blocks=10, level='Hard'):
@@ -14,5 +15,5 @@ def train_qlearning(agent, n_games=100, n_episodes=100, n_training_blocks=10, le
     for n_training_block in range(1, n_training_blocks + 1):
         agent.learn_game(n_episodes)
         print(f"After {n_episodes * n_training_block:,} learning games:")
-        print_demo_game_stats(agent, n_games=n_games, level=level, mode='q-learning')
-    return agent
+        mean_score, max_score = print_demo_game_stats(agent, n_games=n_games, level=level, mode='q-learning')
+    return agent, mean_score, max_score
