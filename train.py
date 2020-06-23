@@ -2,11 +2,10 @@ import numpy as np
 
 
 def print_demo_game_stats(agent, n_games=100, level='Hard', mode='random'):
-    """print the result(mean score and max score) of playing demo game for some times"""
+    """print the result(mean score and max score) of playing demo game"""
     results = [agent.demo_game(level=level, mode=mode) for _ in range(n_games)]
     mean_score, max_score = np.mean(results), np.max(results)
-    print(f"mean score: {mean_score}")
-    print(f"max score: {max_score}")
+    print(f"mean score: {mean_score} | max score: {max_score} ")
     return mean_score, max_score
 
 

@@ -6,7 +6,7 @@ def hashable(state):
     return ', '.join([str(int(i)) for row in state for i in row])
 
 
-def _select_best_move(game):
+def select_best_move_(game):
     """Selects best move that can get the maximum reward for the next state"""
     possible_next_actions = allowed_moves(game.state)
     state_action_score = [(move, try_move(game.state, move)[1])
@@ -94,7 +94,7 @@ class Agent:
             if mode == 'random':
                 next_action = np.random.choice(allowed_moves(game.state))
             elif mode == 'max':
-                next_action = _select_best_move(game)
+                next_action = select_best_move_(game)
             elif mode == 'q-learning':
                 next_action = self.select_best_move(game, game.state)[1]
             else:
