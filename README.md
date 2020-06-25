@@ -7,7 +7,9 @@
 
 ### What is "Threes" and how it plays?
 
-![threes](https://lh3.googleusercontent.com/proxy/QnQWUGqIYAjDjb_Nom_qPxxAdXLKJithSPR0gwxytZ0kQQ0e5cJSh5OXNmh99QvnbFtXACJ4kRTFLuV9YxKQSLX4p5_ie6kNWfI)
+<p align="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Threes_video_game_trailer.gif">
+</p>
 
 "Threes", as the prototype of a well known game 2048, is a mobile game in a 4 by 4 grid environment. 
 Similar to 2048, "Threes" require the player to swipe up/down/left/right to move the tiles. 
