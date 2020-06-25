@@ -3,3 +3,6 @@ Env.ipynb
 .ipynb_checkpoints/Env-checkpoint.ipynb
 .idea/*.xml
 .idea/*.iml
+presentation/*
+training_models/*
+
