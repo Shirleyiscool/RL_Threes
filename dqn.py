@@ -11,7 +11,10 @@ checkpoint_path = "training_model/dqn-{epoch:04d}"
 
 
 class ExperienceReplay:
-    """Store the agent's experiences in order to collect enough example to get a reward signal."""
+    """
+    Store the agent's experiences in order to collect enough example to get a reward signal.
+    Reference: "https://github.com/brianspiering/rl-course/blob/master/labs/lab_5_basket_catch/lab_5_basket_catch.ipynb"
+    """
 
     def __init__(self, max_memory=100):
         self.max_memory = max_memory
@@ -58,6 +61,7 @@ def hash_num(state):
 
 
 def dqn_train(epsilon=0.1, n_episodes=1001):
+    """Train DQN models and save them"""
     # Build a NN model
     model = Sequential()
     model.add(InputLayer(input_shape=(16,)))
