@@ -36,7 +36,10 @@ The goal for this project is to solve the above problem with Reinforcement Learn
 
 ### Project Results and Analysis
 
-![results](presentation/model_results.jpg)
+<p align="center">
+<img src="https://github.com/Shirleyiscool/RL_Threes/blob/master/presentation/model_results.jpg?raw=true">
+</p>
+
  - Metrics: Mean score and max score for a great number of games
  - Baseline: Random mean score: around 300; Random max score: around 3000
  - Greedy Mode: The agent selects the action that can maximize the score of the next state. 
@@ -55,6 +58,20 @@ The goal for this project is to solve the above problem with Reinforcement Learn
  - Comprehensive dynamic programming may be also a good way to solve “Threes”, given the performance of greedy mode.
  - “Threes” is a game with infinite (continuous) states and finite (Discrete) actions, which is not a trivial task for q-learning. The dimensionality of state space is too high to use local approximators. Fitted q iteration may be competitive algorithms for this kind of problem.
 
+ ### Codes
+ - `agent.py` contains a class for agent.
+ - `env.py` contains the "Threes" environment.
+ - `train.py` contains the functions that train the q-learning model.
+ - `dqn.py` contains the functions that train the Deep Q-Network algorithms
+ - `main.py` print the results of "Random"/"Greedy"/"Q-learning"/"DQN" modes
+ 
+Since training q-learning and DQN models take time, `train_dqn_colab.ipynb` and `train_ql_colab.ipynb` are
+two notebooks that put in the Colab to run. `run_demo.ipynb` can be used to try the demo game, including
+interactive mode(human), random mode, and greedy mode.
+  
+  
+ 
+ 
  
 
 
