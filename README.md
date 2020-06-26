@@ -37,7 +37,7 @@ The goal for this project is to solve the above problem with Reinforcement Learn
 ### Project Results and Analysis
 
 <p align="center">
-<img src="https://github.com/Shirleyiscool/RL_Threes/blob/master/presentation/model_results.jpg?raw=true">
+<img src="https://github.com/Shirleyiscool/RL_Threes/blob/master/img/model_results.jpg?raw=true">
 </p>
 
  - Metrics: Mean score and max score for a great number of games
