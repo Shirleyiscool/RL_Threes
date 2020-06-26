@@ -59,14 +59,15 @@ The goal for this project is to solve the above problem with Reinforcement Learn
  - “Threes” is a game with infinite (continuous) states and finite (Discrete) actions, which is not a trivial task for q-learning. The dimensionality of state space is too high to use local approximators. Fitted q iteration may be competitive algorithms for this kind of problem.
 
  ### Codes
- - `agent.py` contains a class for agent.
- - `env.py` contains the "Threes" environment.
- - `train.py` contains the functions that train the q-learning model.
- - `dqn.py` contains the functions that train the Deep Q-Network algorithms
- - `main.py` print the results of "Random"/"Greedy"/"Q-learning"/"DQN" modes
+ - [`agent.py`](codes/agent.py) contains a class for agent.
+ - [`env.py`](codes/env.py) contains the "Threes" environment.
+ - [`train_ql.py`](codes/train_ql.py) contains the functions that train the q-learning model.
+ - [`dqn.py`](codes/dqn.py) contains the functions that train the Deep Q-Network algorithms
+ - [`main.py`](codes/main.py) print the results of "Random"/"Greedy"/"Q-learning"/"DQN" modes
  
-Since training q-learning and DQN models take time, `train_dqn_colab.ipynb` and `train_ql_colab.ipynb` are
-two notebooks that put in the Colab to run. `run_demo.ipynb` can be used to try the demo game, including
+Since training q-learning and DQN models take time, [`train_dqn_colab.ipynb`](notebooks/train_dqn_colab.ipynb) 
+and [`train_ql_colab.ipynb`](notebooks/train_dqn_colab.ipynb) are two notebooks that put in the Colab to run.
+[`run_demo.ipynb`](notebooks/run_demo.ipynb) can be used to try the demo game, including
 interactive mode(human), random mode, and greedy mode.
   
   

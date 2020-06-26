@@ -1,6 +1,4 @@
-from agent import Agent
-from env import Threes
-from train import print_demo_game_stats, train_qlearning
+from train_ql import print_demo_game_stats, train_qlearning
 from tensorflow.keras.models import load_model
 from dqn import *
 import logging
