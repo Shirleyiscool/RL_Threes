@@ -4,5 +4,5 @@ Env.ipynb
 .idea/*
 training_models/*
 .ipynb_checkpoints/*
-
+ignore_files/*
 .DS_Store
