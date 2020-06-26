@@ -12,17 +12,21 @@ def select_best_move_(game):
     state_action_score = [(move, try_move(game.state, move)[1])
                           for move in possible_next_actions]
     max_score = max(state_action_score, key=lambda item: item[1])[1]
-    max_move_list = [move for move, score in state_action_score if score == max_score]
+    max_move_list = [move for move, score in state_action_score
+                     if score == max_score]
     best_next_move = np.random.choice(max_move_list)
     return best_next_move
 
 
 class Agent:
     """
-    This is an agent to play game "Threes". There are two main mode to play the game. One is human mode and the other
-    is computer mode(demo game). For the computer mode, there are currently three methods to play the game: [
+    This is an agent to play game "Threes".
+    There are two main mode to play the game. One is human mode and the other
+    is computer mode(demo game). For the computer mode,
+    there are currently three methods to play the game: [
     'random', 'max', 'q-learning'] The functions here are inspired by
-    "https://github.com/brianspiering/rl-course/blob/master/labs/lab_4_tic_tac_toe/lab_4_tic_tac_toe.ipynb"
+    "https://github.com/brianspiering/rl-course/blob/master/labs/
+    lab_4_tic_tac_toe/lab_4_tic_tac_toe.ipynb"
     """
 
     def __init__(self, threes, epsilon=0.1, alpha=1.0):
@@ -37,8 +41,13 @@ class Agent:
         return self.V.get((hashable(game_state), action), 0.0)
 
     def state_values(self, game_state, actions):
-        """Return a dictionary of state-value pair. It is for finding the action that can maximize the q value """
-        return dict(((hashable(game_state), action), self.state_value(game_state, action)) for action in actions)
+        """
+        Return a dictionary of state-value pair.
+        It is for finding the action that can maximize the q value
+        """
+        return dict(((hashable(game_state), action),
+                     self.state_value(game_state, action))
+                    for action in actions)
 
     def learn_game(self, n_episodes=1000):
         """Let's learn through complete experience to get that reward."""
@@ -61,12 +70,13 @@ class Agent:
         # Current state Q value Q(s, a)
         old_value = self.state_value(current_state, selected_move)
 
-        # best action a* for the next state with the largest q value Q(st+1, a*)
+        # best action a* for the next state
+        # with the largest q value Q(st+1, a*)
         next_max_V, next_max_move = self.select_best_move(game, next_state)
 
         # Q-learning that updates the q-value
-        self.V[(hashable(current_state), selected_move)] = (1 - self.alpha) * old_value + self.alpha * (
-                    reward + next_max_V)
+        self.V[(hashable(current_state), selected_move)] = \
+            (1 - self.alpha) * old_value + self.alpha * (reward + next_max_V)
 
         game.make_move(selected_move)
         return selected_move, reward
@@ -81,9 +91,12 @@ class Agent:
 
     def select_best_move(self, game, game_state):
         """Selects best move for given state(Greedy)"""
-        state_action_values = self.state_values(game_state, allowed_moves(game_state))
+        state_action_values = self.state_values(game_state,
+                                                allowed_moves(game_state))
         max_V = max(state_action_values.values())
-        max_move = np.random.choice([state_action[1] for state_action, v in state_action_values.items() if v == max_V])
+        max_move = np.random.choice([state_action[1] for state_action, v
+                                     in state_action_values.items()
+                                     if v == max_V])
         return max_V, max_move
 
     def demo_game(self, level='hard', mode='random'):

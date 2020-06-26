@@ -7,3 +7,4 @@ training_models/*
 ignore_files/*
 presentation/*
 .DS_Store
+pycodestyle_test.sh

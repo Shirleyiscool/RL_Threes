@@ -1,5 +1,6 @@
-from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, InputLayer
+from tensorflow.keras.models import Sequential
+
 from agent import *
 from env import *
 
@@ -12,8 +13,10 @@ checkpoint_path = "training_model/dqn-{epoch:04d}"
 
 class ExperienceReplay:
     """
-    Store the agent's experiences in order to collect enough example to get a reward signal.
-    Reference: "https://github.com/brianspiering/rl-course/blob/master/labs/lab_5_basket_catch/lab_5_basket_catch.ipynb"
+    Store the agent's experiences in order to collect enough
+    example to get a reward signal.
+    Reference: "https://github.com/brianspiering/rl-course/blob/
+    master/labs/lab_5_basket_catch/lab_5_basket_catch.ipynb"
     """
 
     def __init__(self, max_memory=100):
@@ -38,12 +41,14 @@ class ExperienceReplay:
         inputs = np.zeros((min(len_memory, batch_size), env_dim))
         targets = np.zeros((inputs.shape[0], n_actions))
 
-        for i, idx in enumerate(np.random.randint(0, len_memory, size=inputs.shape[0])):
+        for i, idx in enumerate(np.random.randint(0, len_memory,
+                                                  size=inputs.shape[0])):
             state_t, action_t, reward_t, state_tp1 = self.memory[idx][0]
             game_continue = self.memory[idx][1]
             # train_x: st
             inputs[i:i + 1] = state_t
-            # Initialize target y: q values Q(st, a0), Q(st, a1), Q(st, a2) for each action
+            # Initialize target y:
+            # q values Q(st, a0), Q(st, a1), Q(st, a2) for each action
             targets[i] = model.predict(state_t)[0]
             # Next max q value for the next state: maxQ(stp1, a*)
             q_sa = np.max(model.predict(state_tp1))
@@ -106,7 +111,8 @@ def dqn_train(epsilon=0.1, n_episodes=1001):
             action_num = key_list[val_list.index(action)]
 
             # Store experience.
-            exp_replay.remember([hash_num(current_state), action_num, reward, hash_num(next_state)],
+            exp_replay.remember([hash_num(current_state), action_num,
+                                 reward, hash_num(next_state)],
                                 game_threes.playable())
 
             # Get collected data to train model.
@@ -119,14 +125,18 @@ def dqn_train(epsilon=0.1, n_episodes=1001):
         if (e == 1) or (e % 5 == 1):
             print(
                 f"Epoch: {e:03d}/{n_episodes:,} | Loss value: {loss:>6.3f} | "
-                f"Mean score: {np.mean(results)} | Max score: {np.max(results)}")
+                f"Mean score: {np.mean(results)} | "
+                f"Max score: {np.max(results)}")
             model_list.append(checkpoint_path.format(epoch=e))
             model.save(checkpoint_path.format(epoch=e))
     return model, model_list
 
 
 def print_dqn_game_states(model, n_games=100, level='Hard'):
-    """print the result(mean score and max score) of playing demo game with dqn model"""
+    """
+    Print the result(mean score and max score) of
+    playing demo game with dqn model
+    """
     results = []
     for _ in range(n_games):
         # A new game

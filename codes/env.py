@@ -50,7 +50,10 @@ def try_move_col(array):
 
 
 def get_reward(current_state, next_state):
-    """Given the current state and the next state, return the reward for the transition action."""
+    """
+    Given the current state and the next state,
+    return the reward for the transition action.
+    """
     reward = 0
     # maximum number gets larger
     reward += (np.max(next_state) - np.max(current_state))
@@ -61,7 +64,8 @@ def get_reward(current_state, next_state):
 
 def get_score(state):
     """Get score given a game state"""
-    all_power = [3**(np.log2(num/3)+1) for row in state for num in row if num > 3]
+    all_power = [3 ** (np.log2(num / 3) + 1) for row in state for num in row if
+                 num > 3]
     return np.sum(all_power)
 
 
@@ -108,7 +112,8 @@ class Threes:
     """
     This is a simulated environment of game Threes.
     Swipe direction: {left: 'a', right: 'd', up: 'w', down: 's'}.
-    There are two levels for this game: ['hard', 'easy'], in which default level is 'hard'.
+    There are two levels for this game: ['hard', 'easy'],
+    in which default level is 'hard'.
     """
 
     def __init__(self, level='hard'):
@@ -132,7 +137,8 @@ class Threes:
         # Basic list of numbers that can be selected
         choice_list = [1, 2, 3]
 
-        # More number can be selected when the maximum number on the grid gets larger
+        # More number can be selected when the maximum number
+        # on the grid gets larger
         if np.max(self.state) % 3 == 0:
             max_power = np.int(np.log2(np.max(self.state) / 3))
             choice_list += [3 * 2 ** i for i in range(max_power + 1)]
