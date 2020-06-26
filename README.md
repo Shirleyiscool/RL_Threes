@@ -4,6 +4,8 @@
 
 [![Presentation](https://img.youtube.com/vi/W3iLLTlRbUA/0.jpg)](https://www.youtube.com/watch?v=W3iLLTlRbUA)
 
+<hr>
+
 ### What is "Threes" and how it plays?
 
 <p align="center">
@@ -57,6 +59,8 @@ The goal for this project is to solve the above problem with Reinforcement Learn
  - While training DQN, it may need the whole night to train the model. So saving models would be a good habit when playing with deep learning.
  - Comprehensive dynamic programming may be also a good way to solve “Threes”, given the performance of greedy mode.
  - “Threes” is a game with infinite (continuous) states and finite (Discrete) actions, which is not a trivial task for q-learning. The dimensionality of state space is too high to use local approximators. Fitted q iteration may be competitive algorithms for this kind of problem.
+
+<hr>
 
  ### Codes
  - [`agent.py`](codes/agent.py) contains a class for agent.
