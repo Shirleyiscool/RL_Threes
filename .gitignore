@@ -5,4 +5,5 @@ Env.ipynb
 training_models/*
 .ipynb_checkpoints/*
 ignore_files/*
+presentation/*
 .DS_Store
