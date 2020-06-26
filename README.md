@@ -2,7 +2,7 @@
 
 ## Presentation
 
-[![Presentation](presentation/rl_threes_slide.jpg)](https://youtu.be/W3iLLTlRbUA)
+[![Presentation](https://img.youtube.com/vi/W3iLLTlRbUA/0.jpg)](https://www.youtube.com/watch?v=W3iLLTlRbUA)
 <hr>
 
 ### What is "Threes" and how it plays?
