@@ -69,6 +69,11 @@ Since training q-learning and DQN models take time, [`train_dqn_colab.ipynb`](no
 and [`train_ql_colab.ipynb`](notebooks/train_dqn_colab.ipynb) are two notebooks that put in the Colab to run.
 [`run_demo.ipynb`](notebooks/run_demo.ipynb) can be used to try the demo game, including
 interactive mode(human), random mode, and greedy mode.
+
+### Future Directions
+- Improve the Environment: Let the agent know the next generated number like the real game "Threes" does.
+- Improve DQN and try different hidden layers and activation functions.
+- Try comprehensive Dynamic Programming methods.
   
   
  
