@@ -3,7 +3,6 @@
 ## Presentation
 
 [![Presentation](https://img.youtube.com/vi/W3iLLTlRbUA/0.jpg)](https://www.youtube.com/watch?v=W3iLLTlRbUA)
-<hr>
 
 ### What is "Threes" and how it plays?
 
@@ -36,6 +35,27 @@ The goal for this project is to solve the above problem with Reinforcement Learn
  - Final Score: Sum of 3^Log(2(n(i)/3)+1), (n(i): the number in the grid that is larger than 2.)
 
 ### Project Results and Analysis
+
+![results](presentation/model_results.jpg)
+ - Metrics: Mean score and max score for a great number of games
+ - Baseline: Random mean score: around 300; Random max score: around 3000
+ - Greedy Mode: The agent selects the action that can maximize the score of the next state. 
+ In general, greedy mode is slightly better than the baseline.
+ - Q-learning: The agent can barely learn and got the lowest mean score, even worse than the baseline.
+ **Analysis:** Pure q-learning can not work for "Threes", which includes infinite (continuous) state spaces.
+ It is so hard for the agent to meet the same state again and thus hard to update the best move for each state.
+ - DQN: It can make the agent learn the game and reaches around 850+ mean score and 48,000+ max score after
+ 50 epochs. DQN helps approximate Q(s, a) and thus the agent can learn through neural network.
+ - Human level: After only 10 games (Of course I don't have so much energy to play thousands of game like
+ the computer), I got 5500+ mean score and 20,000+ max score.
+ 
+ ### Conclusions
+ - DQN is better than Q-learning, but both cannot beat humans. 
+ - While training DQN, it may need the whole night to train the model. So saving models would be a good habit when playing with deep learning.
+ - Comprehensive dynamic programming may be also a good way to solve “Threes”, given the performance of greedy mode.
+ - “Threes” is a game with infinite (continuous) states and finite (Discrete) actions, which is not a trivial task for q-learning. The dimensionality of state space is too high to use local approximators. Fitted q iteration may be competitive algorithms for this kind of problem.
+
+ 
 
 
 
